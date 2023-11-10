@@ -14,6 +14,10 @@ class Barang extends \CodeIgniter\Database\Migration
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE,
             ],
+            'nama' => [
+                'type' => 'VARCHAR',
+                'constraint' => 100,
+            ],
             'harga' => [
                 'type' => 'INT',
                 'constraint' => 11,

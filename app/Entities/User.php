@@ -10,7 +10,7 @@ class User extends Entity
     {
         $salt = uniqid('', true);
         $this->attributes['salt'] = $salt;
-        $this->attributes['password'] = md5($salt . $password);
+        $this->attributes['password'] = md5($salt . $pass);
 
         return $this;
     }
