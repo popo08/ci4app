@@ -79,4 +79,67 @@ class Validation
             'required' => '{field} Harus Diisi',
         ],
     ];
+
+    public $barangupdate = [
+        'nama' => [
+            'rules' => 'required|min_length[3]',
+        ],
+        'harga' => [
+            'rules' => 'required|is_natural',
+        ],
+        'stok' => [
+            'rules' => 'required|is_natural',
+        ],
+    ];
+
+    public $barangupdate_errors = [
+        'nama' => [
+            'required' => '{field}Harus Diisi!',
+            'min_lenght' => '{field} Minimum 3 Karakter',
+        ],
+        'barang' => [
+            'required' => '{field}Harus Diisi!',
+            'is_natural' => '{field} Tidak Boleh Negatif',
+        ],
+        'stok' => [
+            'required' => '{field}Harus Diisi!',
+            'is_natural' => '{field} Tidak Boleh Negatif',
+        ],
+        'gambar' => [
+            'uploaded' => '{field} Upload Gambar!',
+        ]
+    ];
+
+    public $barang = [
+        'nama' => [
+            'rules' => 'required|min_length[3]',
+        ],
+        'harga' => [
+            'rules' => 'required|is_natural',
+        ],
+        'stok' => [
+            'rules' => 'required|is_natural',
+        ],
+        'gambar' => [
+            'rules' => 'uploaded[gambar]',
+        ],
+    ];
+
+    public $barang_errors = [
+        'nama' => [
+            'required' => '{field}Harus Diisi!',
+            'min_lenght' => '{field} Minimum 3 Karakter',
+        ],
+        'barang' => [
+            'required' => '{field}Harus Diisi!',
+            'is_natural' => '{field} Tidak Boleh Negatif',
+        ],
+        'stok' => [
+            'required' => '{field}Harus Diisi!',
+            'is_natural' => '{field} Tidak Boleh Negatif',
+        ],
+        'gambar' => [
+            'uploaded' => '{field} Upload Gambar!',
+        ]
+    ];
 }
