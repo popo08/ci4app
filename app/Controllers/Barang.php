@@ -72,10 +72,25 @@ class Barang extends BaseController
 
         if ($this->request->getPost()) {
             $data = $this->request->getPost();
-            $this->validation->getErrors();
+            $this->validation->run($data, 'barangupdate');
+            $errors = $this->validation->getErrors();
 
             if (!$errors) {
                 $b = new \App\Entities\Barang();
+                $b->id = $id;
+                $b->fill($data);
+
+                if($this->request->getFile('gambar')->isValid()){
+                    $b->gambar = $this->request->getFile('gambar');
+                }
+                $b->updated_by = $this-> session->get('id');
+                $b->updated_date = date ("Y-m-d H:i:s");
+
+                $barangModel->save($b);
+
+                $segments = ['barang', 'view', $id];
+
+                return redirect()->to(site_url($segments));
             }
         }
 
@@ -85,5 +100,11 @@ class Barang extends BaseController
     }
     public function delete()
     {
+        $id = $this->request->uri->getSegment(3);
+        $modelBarang= new \App\Models\BarangModel();
+
+        $modelBarang = $modelBarang->where('id', $id)->delete();
+
+        return redirect()->to(site_url('barang/index'));
     }
 }

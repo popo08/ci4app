@@ -42,7 +42,7 @@ $submit = [
 ?>
 <h1>Tambah Barang</h1>
 
-<?= form_open_multipart('Barang/create') ?>
+<?= form_open_multipart('Barang/update/'.$barang->id) ?>
 <div class="form_group">
     <?= form_label("Nama", "nama") ?>
     <?= form_input($nama) ?>
